@@ -96,7 +96,7 @@ module RubySpeech
       private
 
       def regexp_content
-        '^' + grammar.root_rule.children.map(&:regexp_content).join + '$'
+        @regexp_content ||= '^' + grammar.root_rule.children.map(&:regexp_content).join + '$'
       end
 
       def prepare_grammar
