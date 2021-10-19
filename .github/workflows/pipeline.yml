@@ -16,6 +16,7 @@ jobs:
         - 2.6
         - 2.7
         - jruby-9.1.17.0
+        - jruby-9.2.7.0
         - jruby-head
     steps:
     - uses: actions/checkout@v2
