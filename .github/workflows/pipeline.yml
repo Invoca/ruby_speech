@@ -16,7 +16,8 @@ jobs:
         - 2.6
         - 2.7
         - jruby-9.1.17.0
-        - jruby-9.2.7.0
+        # - jruby-9.2.7.0 # what apptastic currently uses
+        - jruby-9.2.9.0 # close to what apptastic uses
         - jruby-head
     steps:
     - uses: actions/checkout@v2
