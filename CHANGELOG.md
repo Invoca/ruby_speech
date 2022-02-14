@@ -1,8 +1,5 @@
 # [develop](https://github.com/benlangfeld/ruby_speech)
 
-# [3.1.0](https://github.com/Invoca/ruby_speech/compare/v3.0.0...v3.1.0) - 2022-02-11
-  * Feature: Allow configuration of include and lib paths for pcre dependency
-
 # [3.0.0](https://github.com/benlangfeld/ruby_speech/compare/v2.4.0...v3.0.0) - [2018-07-10](https://rubygems.org/gems/ruby_speech/versions/3.0.0)
   * Feature: Loosen and bump Nokogiri version to ~>1.8, >=1.8.3
   * Feature: Bump RSpec to 3.x and convert specs with Transpec
