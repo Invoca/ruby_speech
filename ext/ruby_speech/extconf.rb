@@ -7,7 +7,7 @@ LIBDIRS = ['/usr/local/lib', RbConfig::CONFIG['libdir'], '/usr/lib']
 if RUBY_PLATFORM =~ /x86_64-darwin/
   INCLUDEDIRS.unshift('/usr/local/homebrew/include')
   LIBDIRS.unshift('/usr/local/homebrew/lib')
-elsif RUBY_PLATFORM =~ /arm64e-darwin/
+elsif RUBY_PLATFORM =~ /arm64-darwin/
   INCLUDEDIRS.unshift('/opt/homebrew/include')
   LIBDIRS.unshift('/opt/homebrew/lib')
 end
