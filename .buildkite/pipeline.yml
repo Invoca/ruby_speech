@@ -1,0 +1,69 @@
+steps:
+#  - label: ':docker: Build SMS Messaging Image'
+#    timeout_in_minutes: 5
+#    notify:
+#      - github_commit_status:
+#          context: 'image-ready'
+#    agents:
+#      queue: buildkit-daemonless
+#      buildkit: true
+#      daemonless: true
+#    plugins:
+#      - adabay/vault-key-value#v0.9.5:
+#          secrets:
+#            - secret_path: secret/kubernetes/buildkite/bundle-gem
+#              secret_key: gemfury
+#              exported_env_variable_name: BUNDLE_GEM__FURY__IO
+#    commands:
+#      - echo \$BUNDLE_GEM__FURY__IO > /tmp/bundle_gemfury_token.txt
+#      - >
+#        buildctl-daemonless build --output type=image,\"name=invocaops/sms-messaging:$BUILDKITE_COMMIT,invocaops/sms-messaging:\$BUILDKITE_BRANCH_DOCKER_SAFE\",push=true \
+#                                  --progress plain \
+#                                  --frontend dockerfile.v0 \
+#                                  --local context=. \
+#                                  --local dockerfile=. \
+#                                  --export-cache type=registry,ref=docker.io/invocaops/sms-messaging:\$BUILDKITE_BRANCH_DOCKER_SAFE-cache \
+#                                  --import-cache type=registry,ref=docker.io/invocaops/sms-messaging:\$BUILDKITE_BRANCH_DOCKER_SAFE-cache \
+#                                  --import-cache type=registry,ref=docker.io/invocaops/sms-messaging:main-cache \
+#                                  --ssh default \
+#                                  --secret id=bundle_gemfury_token,src=/tmp/bundle_gemfury_token.txt
+#
+#  - label: ":boom: Danger"
+#    if: "build.pull_request.id != null"
+#    timeout_in_minutes: 5
+#    agents:
+#      queue: ruby-2-7-mysql
+#      ruby: 2.7
+#    env:
+#      RAILS_ENV: test
+#    plugins:
+#      - adabay/vault-key-value#v0.9.5:
+#          secrets:
+#            - secret_path: secretV2/kubernetes/buildkite/danger
+#              secret_key: github_token
+#              exported_env_variable_name: DANGER_GITHUB_API_TOKEN
+#    commands:
+#      - git fetch --depth 100 origin $BUILDKITE_COMMIT # Fetch deeper for comparison
+#      - apt-get install libsqlite3-dev
+#      - bundle install
+#      - bundle exec danger
+#
+  - label: ":ruby: 2.7 RSpec Unit tests"
+    timeout_in_minutes: 10
+    notify:
+      - github_commit_status:
+          context: "clean-build"
+    agents:
+      queue: ruby-2-7-mysql
+      ruby: 2.7
+    env:
+      RAILS_ENV: test
+    command:
+#      - apt-get install libsqlite3-dev
+      - bundle install
+#      - PATH_TO_DATABASE_YML="db/database.yml"
+#      - bundle exec rake db:create
+#      - bundle exec rake db:migrate
+      - bundle exec rake spec
+    artifact_paths:
+      - spec/reports/**/*
