@@ -12,7 +12,7 @@ steps:
 #    - jruby-9.2.9.0 # close to what apptastic uses
 #    - jruby-head
   agents:
-    queue: "{{matrix}}"
+    agent: "{{matrix}}"
 #    queue: ruby-2-7
   command:
     - apt-get install -y libpcre3 libpcre3-dev
