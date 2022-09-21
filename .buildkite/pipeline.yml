@@ -40,3 +40,43 @@ steps:
     - bundle exec rake
   artifact_paths:
     - spec/reports/**/*
+- label: ":ruby: :rspec: jruby-9-1-17-0"
+  timeout_in_minutes: 10
+  agents:
+    queue: jruby-9-1-17-0
+  command:
+    - apt-get install -y libpcre3 libpcre3-dev
+    - bundle install
+    - bundle exec rake
+  artifact_paths:
+    - spec/reports/**/*
+- label: ":ruby: :rspec: jruby-9-2-7-0"
+  timeout_in_minutes: 10
+  agents:
+    queue: jruby-9-2-7-0
+  command:
+    - apt-get install -y libpcre3 libpcre3-dev
+    - bundle install
+    - bundle exec rake
+  artifact_paths:
+    - spec/reports/**/*
+- label: ":ruby: :rspec: jruby-9-2-9-0"
+  timeout_in_minutes: 10
+  agents:
+    queue: jruby-9-2-9-0
+  command:
+    - apt-get install -y libpcre3 libpcre3-dev
+    - bundle install
+    - bundle exec rake
+  artifact_paths:
+    - spec/reports/**/*
+- label: ":ruby: :rspec: jruby-head"
+  timeout_in_minutes: 10
+  agents:
+    queue: jruby-head
+  command:
+    - apt-get install -y libpcre3 libpcre3-dev
+    - bundle install
+    - bundle exec rake
+  artifact_paths:
+    - spec/reports/**/*
