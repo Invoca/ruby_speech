@@ -10,3 +10,33 @@ steps:
     - bundle exec rake
   artifact_paths:
     - spec/reports/**/*
+- label: ":ruby: :rspec: ruby-2-5"
+  timeout_in_minutes: 10
+  agents:
+    queue: ruby-2-5
+  command:
+    - apt-get install -y libpcre3 libpcre3-dev
+    - bundle install
+    - bundle exec rake
+  artifact_paths:
+    - spec/reports/**/*
+- label: ":ruby: :rspec: ruby-2-6"
+  timeout_in_minutes: 10
+  agents:
+    queue: ruby-2-6
+  command:
+    - apt-get install -y libpcre3 libpcre3-dev
+    - bundle install
+    - bundle exec rake
+  artifact_paths:
+    - spec/reports/**/*
+- label: ":ruby: :rspec: ruby-2-7"
+  timeout_in_minutes: 10
+  agents:
+    queue: ruby-2-7
+  command:
+    - apt-get install -y libpcre3 libpcre3-dev
+    - bundle install
+    - bundle exec rake
+  artifact_paths:
+    - spec/reports/**/*
