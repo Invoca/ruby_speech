@@ -1,19 +1,9 @@
 ---
 steps:
-- label: ":ruby: :rspec:"
+- label: ":ruby: :rspec: ruby-2-4"
   timeout_in_minutes: 10
-  matrix:
-#    - 2.4
-#    - 2.5
-    - ruby-2-6
-    - ruby-2-7
-#    - jruby-9.1.17.0
-#    # - jruby-9.2.7.0 # what apptastic currently uses
-#    - jruby-9.2.9.0 # close to what apptastic uses
-#    - jruby-head
   agents:
-    agent: "{{matrix}}"
-#    queue: ruby-2-7
+    queue: ruby-2-4
   command:
     - apt-get install -y libpcre3 libpcre3-dev
     - bundle install
