@@ -69,7 +69,7 @@ steps:
       - JRUBY_OPTS="$JRUBY_OPTS --debug"
       - export JRUBY_OPTS
       - bundle install
-      - bundle exec rake
+      - bundle exec rake --trace
     artifact_paths:
       - spec/reports/**/*
   - label: ":ruby: :rspec: jruby-9-2-9-0"
