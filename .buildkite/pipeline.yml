@@ -55,7 +55,7 @@ steps:
     agents:
       queue: jruby-9-2-7-0
     command:
-      - apt-get install -y libpcre3 libpcre3-dev
+#      - apt-get install -y libpcre3 libpcre3-dev
       - bundle install
       - bundle exec rake
     artifact_paths:
