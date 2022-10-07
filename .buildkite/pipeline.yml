@@ -68,7 +68,7 @@ steps:
 #      - JRUBY_OPTS="$JRUBY_OPTS --debug"
 #      - export JRUBY_OPTS
 #      - jruby --debug -S ./bin/rspec
-#      - apt-get install -y libpcre3 libpcre3-dev
+      - apt-get install -y libpcre3 libpcre3-dev
       - bundle install
       - bundle exec rake --trace
     artifact_paths:
