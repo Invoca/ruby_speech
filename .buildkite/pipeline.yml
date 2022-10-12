@@ -1,25 +1,5 @@
 ---
 steps:
-  - label: ":ruby: :rspec: ruby-2-4"
-    timeout_in_minutes: 10
-    agents:
-      queue: ruby-2-4
-    command:
-      - apt-get install -y libpcre3 libpcre3-dev
-      - bundle install
-      - bundle exec rake
-    artifact_paths:
-      - spec/reports/**/*
-  - label: ":ruby: :rspec: ruby-2-5"
-    timeout_in_minutes: 10
-    agents:
-      queue: ruby-2-5
-    command:
-      - apt-get install -y libpcre3 libpcre3-dev
-      - bundle install
-      - bundle exec rake
-    artifact_paths:
-      - spec/reports/**/*
   - label: ":ruby: :rspec: ruby-2-6"
     timeout_in_minutes: 10
     agents:
@@ -30,20 +10,10 @@ steps:
       - bundle exec rake
     artifact_paths:
       - spec/reports/**/*
-  - label: ":ruby: :rspec: ruby-2-7"
+  - label: ":ruby: :rspec: ruby-2-7" # what web currently uses
     timeout_in_minutes: 10
     agents:
       queue: ruby-2-7
-    command:
-      - apt-get install -y libpcre3 libpcre3-dev
-      - bundle install
-      - bundle exec rake
-    artifact_paths:
-      - spec/reports/**/*
-  - label: ":ruby: :rspec: jruby-9-1-17-0"
-    timeout_in_minutes: 10
-    agents:
-      queue: jruby-9-1-17-0
     command:
       - apt-get install -y libpcre3 libpcre3-dev
       - bundle install
@@ -55,41 +25,8 @@ steps:
     agents:
       queue: jruby-9-2-7-0
     command:
-#      - export AHN_ENV=test
-#      - export CI=1
-#      - export SPEC_COVERAGE=1
-#      - export SPEC_OPTS='--profile'
-#      - JRUBY_OPTS="$JRUBY_OPTS -J-Xmn600m -J-Xms2200m -J-Xmx2200m -J-Xss1024k -J-XX:ReservedCodeCacheSize=300m -J-XX:CompileThreshold=8000"
-#      - JRUBY_OPTS="$JRUBY_OPTS -J-XX:+PrintCommandLineFlags -J-XX:+StartAttachListener -J-XX:+PrintGCDateStamps -J-Xloggc:./ahn-gc.log"
-#      - JRUBY_OPTS="$JRUBY_OPTS --server --headless --disable=did_you_mean"
-#      - JRUBY_OPTS="$JRUBY_OPTS -J-Djava.security.egd=file:/dev/./urandom"
-#      - JRUBY_OPTS="$JRUBY_OPTS -J-XX:+UseParallelGC"
-#      - JRUBY_OPTS="$JRUBY_OPTS -J-XX:CompressedClassSpaceSize=100m -J-XX:MaxMetaspaceSize=300m"
-#      - JRUBY_OPTS="$JRUBY_OPTS --debug"
-#      - export JRUBY_OPTS
-#      - jruby --debug -S ./bin/rspec
       - apt-get install -y libpcre3 libpcre3-dev
       - bundle install
       - bundle exec rake --trace
-    artifact_paths:
-      - spec/reports/**/*
-  - label: ":ruby: :rspec: jruby-9-2-9-0"
-    timeout_in_minutes: 10
-    agents:
-      queue: jruby-9-2-9-0
-    command:
-      - apt-get install -y libpcre3 libpcre3-dev
-      - bundle install
-      - bundle exec rake
-    artifact_paths:
-      - spec/reports/**/*
-  - label: ":ruby: :rspec: jruby-head"
-    timeout_in_minutes: 10
-    agents:
-      queue: jruby-head
-    command:
-      - apt-get install -y libpcre3 libpcre3-dev
-      - bundle install
-      - bundle exec rake
     artifact_paths:
       - spec/reports/**/*
