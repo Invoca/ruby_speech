@@ -1,5 +1,7 @@
-# -*- encoding: utf-8 -*-
-$:.push File.expand_path("../lib", __FILE__)
+# frozen_string_literal: true
+
+lib = File.expand_path("../lib", __FILE__)
+$LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require "ruby_speech/version"
 
 Gem::Specification.new do |s|
@@ -17,6 +19,9 @@ Gem::Specification.new do |s|
   s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
   s.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
   s.require_paths = ["lib"]
+
+  s.metadata['source_code_uri'] = "https://github.com/Invoca/ruby_speech"
+  s.metadata['allowed_push_host'] = "https://gem.fury.io/invoca"
 
   if RUBY_PLATFORM =~ /java/
     s.platform = "java"
