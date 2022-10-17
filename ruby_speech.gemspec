@@ -5,11 +5,11 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require "ruby_speech/version"
 
 Gem::Specification.new do |s|
-  s.name        = "ruby_speech"
+  s.name        = "invoca-ruby_speech"
   s.version     = RubySpeech::VERSION
-  s.authors     = ["Ben Langfeld"]
-  s.email       = ["ben@langfeld.me"]
-  s.homepage    = "https://github.com/adhearsion/ruby_speech"
+  s.authors     = ["Ben Langfeld", "Invoca Development"]
+  s.email       = ["ben@langfeld.me", "development@invoca.com"]
+  s.homepage    = "https://github.com/Invoca/ruby_speech"
   s.summary     = %q{A Ruby library for TTS & ASR document preparation}
   s.description = %q{Prepare SSML and GRXML documents with ease}
 
