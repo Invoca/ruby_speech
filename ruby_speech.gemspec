@@ -1,13 +1,15 @@
-# -*- encoding: utf-8 -*-
-$:.push File.expand_path("../lib", __FILE__)
+# frozen_string_literal: true
+
+lib = File.expand_path("../lib", __FILE__)
+$LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require "ruby_speech/version"
 
 Gem::Specification.new do |s|
-  s.name        = "ruby_speech"
+  s.name        = "invoca-ruby_speech"
   s.version     = RubySpeech::VERSION
-  s.authors     = ["Ben Langfeld"]
-  s.email       = ["ben@langfeld.me"]
-  s.homepage    = "https://github.com/adhearsion/ruby_speech"
+  s.authors     = ["Ben Langfeld", "Invoca Development"]
+  s.email       = ["ben@langfeld.me", "development@invoca.com"]
+  s.homepage    = "https://github.com/Invoca/ruby_speech"
   s.summary     = %q{A Ruby library for TTS & ASR document preparation}
   s.description = %q{Prepare SSML and GRXML documents with ease}
 
@@ -18,6 +20,9 @@ Gem::Specification.new do |s|
   s.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
   s.require_paths = ["lib"]
 
+  s.metadata['source_code_uri'] = "https://github.com/Invoca/ruby_speech"
+  s.metadata['allowed_push_host'] = "https://gem.fury.io/invoca"
+
   if RUBY_PLATFORM =~ /java/
     s.platform = "java"
     s.files << "lib/ruby_speech/ruby_speech.jar"
@@ -25,25 +30,6 @@ Gem::Specification.new do |s|
     s.extensions = ['ext/ruby_speech/extconf.rb']
   end
 
-  s.add_runtime_dependency %q<nokogiri>, ["~> 1.8", ">= 1.8.3"]
-  s.add_runtime_dependency %q<activesupport>, [">= 3.0.7"]
-
-  s.add_development_dependency %q<bundler>, [">= 1.0.0"]
-  s.add_development_dependency %q<rspec>, ["~> 3.0"]
-  s.add_development_dependency %q<rspec-its>, [">= 0"]
-  s.add_development_dependency %q<ci_reporter>, ["~> 1.6"]
-  s.add_development_dependency %q<yard>, [">= 0.7.0"]
-  s.add_development_dependency %q<rake>, [">= 0"]
-  s.add_development_dependency %q<guard>, [">= 0.9.0"]
-  s.add_development_dependency %q<guard-rspec>, [">= 0"]
-  s.add_development_dependency %q<listen>, ["< 3.1.0"]
-  s.add_development_dependency %q<ruby_gntp>, [">= 0"]
-  s.add_development_dependency %q<guard-rake>, [">= 0"]
-  s.add_development_dependency %q<rake-compiler>, [">= 0"]
-  s.add_development_dependency %q<coveralls>, [">= 0"]
-
-  if RUBY_VERSION < '2.0'
-    s.add_development_dependency %q<term-ansicolor>, ["< 1.3.1"]
-    s.add_development_dependency %q<tins>, ["~> 1.6.0"]
-  end
+  s.add_dependency %q<nokogiri>, ["~> 1.8", ">= 1.8.3"]
+  s.add_dependency %q<activesupport>, [">= 3.0.7"]
 end
