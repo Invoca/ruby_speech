@@ -13,3 +13,5 @@ vendor
 tmp/
 coverage
 .idea/
+
+gemfiles/*.lock

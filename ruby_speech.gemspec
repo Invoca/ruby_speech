@@ -10,8 +10,8 @@ Gem::Specification.new do |s|
   s.authors     = ["Ben Langfeld", "Invoca Development"]
   s.email       = ["ben@langfeld.me", "development@invoca.com"]
   s.homepage    = "https://github.com/Invoca/ruby_speech"
-  s.summary     = %q{A Ruby library for TTS & ASR document preparation}
-  s.description = %q{Prepare SSML and GRXML documents with ease}
+  s.summary     = "A Ruby library for TTS & ASR document preparation"
+  s.description = "Prepare SSML and GRXML documents with ease"
 
   s.license = 'MIT'
 
@@ -30,6 +30,6 @@ Gem::Specification.new do |s|
     s.extensions = ['ext/ruby_speech/extconf.rb']
   end
 
-  s.add_dependency %q<nokogiri>, ["~> 1.8", ">= 1.8.3"]
-  s.add_dependency %q<activesupport>, [">= 3.0.7"]
+  s.add_dependency "nokogiri", "~> 1.8", ">= 1.8.3"
+  s.add_dependency "activesupport", ">= 3.0.7"
 end
