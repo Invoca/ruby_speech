@@ -29,5 +29,6 @@ metadata:
 spec:
   type: library
   lifecycle: production
-  owner: octothorpe
+  owner: calls
+  system: telephony-system
   dependsOn: []
