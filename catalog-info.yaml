@@ -17,7 +17,7 @@ metadata:
   title: Invoca::RubySpeech
   description: Prepare SSML and GRXML documents with ease
   tags:
-    -ruby
+    - ruby
     - gem
     - public
     - rails-dependent
